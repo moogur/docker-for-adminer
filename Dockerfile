@@ -1,5 +1,5 @@
 # Set alpine version
-ARG ALPINE_VERSION=3.15.7
+ARG ALPINE_VERSION=3.16.4
 
 # Build
 FROM alpine:${ALPINE_VERSION}
@@ -12,7 +12,7 @@ WORKDIR /server
 RUN	addgroup -S adminer && \
     adduser -S -G adminer adminer && \
     chown -R adminer:adminer /server && \
-    echo '@community http://nl.alpinelinux.org/alpine/v3.14/community' >> /etc/apk/repositories && \
+    echo '@community http://nl.alpinelinux.org/alpine/v3.16/community' >> /etc/apk/repositories && \
     apk add --no-cache \
       curl \
       php8@community \
