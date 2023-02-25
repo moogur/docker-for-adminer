@@ -1,8 +1,9 @@
 # Set global environment
-ARG ALPINE_VERSION=3.16.4
+ARG ALPINE_VERSION=3.15.7
 ARG ADMINER_VERSION=4.8.1
 ARG ADMINER_FLAVOUR="-en"
 
+# Build
 FROM alpine:${ALPINE_VERSION}
 
 WORKDIR /var/adminer
