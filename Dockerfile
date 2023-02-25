@@ -20,7 +20,7 @@ RUN	addgroup -S adminer && \
       php8-mysqli@community \
       php8-pgsql@community \
       php8-json@community \
-      php8-pecl-mongodb@community \
+      php8-pecl-mongodb@community && \
     curl -L https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}${ADMINER_FLAVOUR}.php -o index.php && \
     ln -s /usr/bin/php8 /usr/bin/php && \
     apk del curl && \
