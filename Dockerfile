@@ -1,5 +1,5 @@
 # Set alpine version
-ARG ALPINE_VERSION=3.16.4
+ARG ALPINE_VERSION=3.15.7
 
 # Build
 FROM alpine:${ALPINE_VERSION}
