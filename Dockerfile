@@ -1,7 +1,5 @@
 # Set global environment
 ARG ALPINE_VERSION=3.15.7
-ARG ADMINER_VERSION=4.8.1
-ARG ADMINER_FLAVOUR=-en
 
 # Build
 FROM alpine:${ALPINE_VERSION}
@@ -21,7 +19,7 @@ RUN	addgroup -S adminer && \
       php7-pdo_pgsql \
       php7-pdo_sqlite \
       php7-session && \
-    curl -L https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}${ADMINER_FLAVOUR}.php -o index.php && \
+    curl -L https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-en.php -o index.php && \
     apk del curl && \
     rm -rf /var/cache/apk/*
 
