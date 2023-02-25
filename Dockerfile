@@ -6,11 +6,11 @@ ARG ADMINER_FLAVOUR=-en
 # Build
 FROM alpine:${ALPINE_VERSION}
 
-WORKDIR /var/adminer
+WORKDIR /server
 
 RUN	addgroup -S adminer && \
     adduser -S -G adminer adminer && \
-    chown -R adminer:adminer /var/adminer && \
+    chown -R adminer:adminer /server && \
     apk add --no-cache \
       curl \
       php7 \
@@ -31,4 +31,4 @@ CMD /usr/bin/php \
     -d upload_max_filesize=2048M \
     -d post_max_size=2048M \
     -S 0.0.0.0:8080 \
-    -t /var/adminer
+    -t /server
