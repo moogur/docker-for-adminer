@@ -1,5 +1,5 @@
 # Set alpine version
-ARG ALPINE_VERSION=3.15.7
+ARG ALPINE_VERSION=3.16.4
 
 # Build
 FROM alpine:${ALPINE_VERSION}
@@ -12,17 +12,17 @@ WORKDIR /server
 RUN	addgroup -S adminer && \
     adduser -S -G adminer adminer && \
     chown -R adminer:adminer /server && \
+    echo '@community http://nl.alpinelinux.org/alpine/v3.14/community' >> /etc/apk/repositories && \
     apk add --no-cache \
       curl \
-      php7 \
-      php7-opcache \
-      php7-pdo \
-      php7-pdo_mysql \
-      php7-pdo_odbc \
-      php7-pdo_pgsql \
-      php7-pdo_sqlite \
-      php7-session && \
+      php8@community \
+      php8-session@community \
+      php8-mysqli@community \
+      php8-pgsql@community \
+      php8-json@community \
+      php8-pecl-mongodb@community \
     curl -L https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}${ADMINER_FLAVOUR}.php -o index.php && \
+    ln -s /usr/bin/php8 /usr/bin/php && \
     apk del curl && \
     rm -rf /var/cache/apk/*
 
