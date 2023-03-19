@@ -19,7 +19,7 @@ RUN	addgroup -S adminer && \
       php7-opcache \
       php7-pdo \
       php7-pdo_pgsql \
-      php7-session \
+      php7-session && \
     curl -L https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}${ADMINER_FLAVOUR}.php -o index.php && \
     apk del curl && \
     rm -rf /var/cache/apk/*
